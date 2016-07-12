@@ -1,0 +1,28 @@
+{
+  "name": "wsobserver",
+  "version": "1.0.0",
+  "description": "websocket client used in electron main process,pub/sub message in render process",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/116356754/wsobserver.git"
+  },
+  "keywords": [
+    "electron",
+    "websocket",
+    "pub",
+    "sub"
+  ],
+  "author": "wangky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/116356754/wsobserver/issues"
+  },
+  "homepage": "https://github.com/116356754/wsobserver#readme",
+  "dependencies": {
+    "ws": "^1.1.1"
+  }
+}
