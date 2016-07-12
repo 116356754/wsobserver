@@ -1,4 +1,7 @@
-module.exports =wsclient;
+module.exports ={
+    wsclient,
+    observer:require('./observer')
+};
 
 var WebSocket = require('ws');
 const util = require('util');
@@ -65,5 +68,6 @@ function ws_disaptch(wsdata)
     var title = wsdata.slice(0,wsdata.indexOf(':'));
     logger.info('ws title is:'+title);
 
-    global.sharedObj.wsObserver.send(title,wsdata);
+    if(typeof global.sharedObj.wsObserver.send =='function')
+        global.sharedObj.wsObserver.send(title,wsdata);
 }

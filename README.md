@@ -12,19 +12,18 @@ Electron render process receive websocket message from Electron main process thr
 
 Require the module in an Electron web page.
 
-    var wsobser = require('wsobserver')
+    var wswrap = require('wsobserver')
 
 ### Electron main process
 #### set up gloabl object
 	
 	//share object in render process and main process
-	global.sharedObj = {
-	wsObserver:require('wsobserver/observer')};
+	 global.sharedObj.wsObserver =wswrap.observer;
 
 ####websocket usage
  open a websocket client:
 	
-    var ws = new wsobser('ws://localhost:8088');
+    var ws = new wswrap.wsclient('ws://localhost:8088');
     ws.ws_connect();
     
  open a websocket client:
