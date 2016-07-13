@@ -1,6 +1,6 @@
 {
   "name": "wsobserver",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "websocket client used in electron main process,pub/sub message in render process",
   "main": "index.js",
   "scripts": {

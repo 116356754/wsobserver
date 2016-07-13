@@ -1,41 +1,47 @@
 ##wsobserver
+A node module for receive websocket message in electron main process,and routing  to render process.
 
-websocket client for Electron applications.
+## Introduction
 
-we use wsobserver module in electron main process,wsobserver use thrid party module to connect remote websocket server.
+In electron main process start a websocket client, use thrid party module to connect remote websocket server.
 
-Electron render process receive websocket message from Electron main process throught wsobserver module.we only to add render page's webcontent into wsobserver.
+If Electron render process want to  receive websocket message from Electron main process, must subscribe title and ipc channel throught wsobserver module.we only to add render page's webcontent into wsobserver.
 
-		
+##Install
+	npm install wsobserver --save
+	
 ##Usage
-    npm install wsobserver --save
-
 Require the module in an Electron web page.
 
     var wswrap = require('wsobserver')
 
-### Electron main process
-#### set up gloabl object
+##UsageAPI
+
+**subscribe(object, title, ipc_name)**
+
+object:Electron's BrowserWindow property webContent, 
+title:string, ipc_name:string
+
+**unsubscribe(object, title)**
+
+object:Electron's BrowserWindow property webContent,  title:string
+
+**unsubscribeAll(object)**
+object:Electron's BrowserWindow property webContent
+
+**send(title, data)**
+
+title:string, data:string
+
+### In main process
 	
 	//share object in render process and main process
-	 global.sharedObj.wsObserver =wswrap.observer;
-
-####websocket usage
- open a websocket client:
-	
-    var ws = new wswrap.wsclient('ws://localhost:8088');
-    ws.ws_connect();
+	global.sharedObj.wsObserver =wswrap.observer;
     
- open a websocket client:
+	var ws = new wswrap.wsclient('ws://localhost:8088');
+    ws.ws_connect();
 
-	ws.ws_sendmsg('hello server');
-
- close a websocket client:
-
-	ws.ws_stop();
-
-
-### Electron render process
+### In render process
 
     var ipcRenderer = require('electron').ipcRenderer;
     var remote = require('electron').remote;
