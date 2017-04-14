@@ -2,7 +2,6 @@
 A node module for receive websocket message in electron main process,and routing  to render process.
 
 ## Introduction
-
 In electron main process start a websocket client, use thrid party module to connect remote websocket server.
 
 If Electron render process want to  receive websocket message from Electron main process, must subscribe title and ipc channel throught wsobserver module.we only to add render page's webcontent into wsobserver.
